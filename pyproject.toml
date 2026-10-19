@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "drift-vision"
+version = "0.1.0"
+description = "Computer vision for dashcam footage: road lines, turns, signs and environment."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=2.0",
+    "opencv-python>=4.10",   # video I/O, classic lane detection (Canny, Hough, warps)
+    "ultralytics>=8.3",      # YOLO detection/segmentation for signs, cars, road; pulls in torch
+    "torch>=2.9",
+    "torchvision>=0.24",
+    "pyyaml>=6.0",           # config files
+    "matplotlib>=3.9",       # plotting / debugging
+    "tqdm>=4.66",            # progress bars over video frames
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+    "jupyterlab>=4.2",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100

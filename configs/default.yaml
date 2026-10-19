@@ -1,0 +1,16 @@
+# Input: a path to a video file, or an integer camera index (0 = first webcam)
+source: data/samples/dashcam.mp4
+
+display: true
+output_path: null   # e.g. data/processed/out.mp4 to save the annotated video
+
+lanes:
+  canny_low: 50
+  canny_high: 150
+  # Region of interest as fractions of frame size (bottom half trapezoid)
+  roi_top_y: 0.6
+  roi_top_width: 0.15
+
+objects:
+  model: yolo11n.pt   # downloaded automatically on first run
+  confidence: 0.4
