@@ -10,6 +10,7 @@ lanes:
   # Region of interest as fractions of frame size (bottom half trapezoid)
   roi_top_y: 0.6
   roi_top_width: 0.15
+  smoothing_window: 5
 
 objects:
   model: yolo11n.pt   # downloaded automatically on first run
